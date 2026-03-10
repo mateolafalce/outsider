@@ -39,7 +39,7 @@ outsider/
 ## Quick start
 
 ```bash
-pip install -r requirements.txt
+uv pip install -r requirements.txt
 
 # Local video
 python -m src.video_pipeline --source video.mp4 --zones configs/zones.json
