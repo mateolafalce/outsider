@@ -1,8 +1,12 @@
 <div align="center">
+  
+<img src="./public/logo.png" width="200" height="200" alt="Description">   
 
 # Outsider 
 
 Video Intrusion Detection System
+
+![preview](./public/output_detected.gif)
 
 </div>
 
