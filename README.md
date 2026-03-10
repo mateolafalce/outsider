@@ -54,7 +54,6 @@ python -m src.video_pipeline --source 0 --zones configs/zones.json
 ## Public datasets
 
 - [VIRAT Video Dataset](https://viratdata.org/)
-- [MOT Challenge](https://motchallenge.net/)
 - [COCO Dataset](https://cocodataset.org/)
 - [Town Centre Dataset (Oxford)](https://megapixels.cc/oxford_town_centre/)
 
