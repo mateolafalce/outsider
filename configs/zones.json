@@ -1,0 +1,14 @@
+{
+  "zones": [
+    {
+      "name": "Zona restringida A",
+      "polygon": [[100, 150], [500, 150], [500, 450], [100, 450]],
+      "severity": "high"
+    },
+    {
+      "name": "Zona restringida B",
+      "polygon": [[600, 200], [900, 200], [900, 500], [600, 500]],
+      "severity": "medium"
+    }
+  ]
+}
