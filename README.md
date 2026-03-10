@@ -1,13 +1,16 @@
-# Outsider - Video Intrusion Detection System
+<div align="center">
+
+# Outsider 
+
+Video Intrusion Detection System
+
+</div>
 
 Computer vision pipeline for intrusion detection in restricted zones using YOLOv8 + OpenCV.
 
 ## Features
 
 - Person detection with YOLOv8 (pre-trained on COCO)
-- Configurable regions of interest (ROI) via JSON
-- Support for local video, RTSP streams and webcam
-- Automatic alerts with snapshots and logging
 - Real-time visualization with bounding boxes and ROIs
 - Google Colab compatible
 
@@ -48,23 +51,6 @@ python -m src.video_pipeline --source 0 --zones configs/zones.json
 
 - [VIRAT Video Dataset](https://viratdata.org/)
 - [MOT Challenge](https://motchallenge.net/)
-- [COCO Dataset](https://cocodataset.org/) (used for model pre-training)
+- [COCO Dataset](https://cocodataset.org/)
 - [Town Centre Dataset (Oxford)](https://megapixels.cc/oxford_town_centre/)
 
-## Zone configuration
-
-Edit `configs/zones.json` to define restricted zones:
-
-```json
-{
-  "zones": [
-    {
-      "name": "Main entrance",
-      "polygon": [[100, 200], [400, 200], [400, 500], [100, 500]],
-      "severity": "high"
-    }
-  ]
-}
-```
-
-Polygons are defined as a list of `[x, y]` points in pixel coordinates.
