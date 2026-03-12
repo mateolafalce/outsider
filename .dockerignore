@@ -1,0 +1,14 @@
+.git
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+alerts/
+videos/
+*.pt
+*.mp4
+*.avi
+*.mov
+public/output_detected.gif
+outsider_colab.ipynb

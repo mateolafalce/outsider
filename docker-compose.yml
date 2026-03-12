@@ -1,0 +1,43 @@
+services:
+  outsider:
+    build: .
+    volumes:
+      - ./alerts:/app/alerts
+      - ./configs:/app/configs
+      - ./videos:/app/videos
+    command:
+      - "--source"
+      - "videos/video.mp4"
+      - "--zones"
+      - "configs/zones.json"
+      - "--no-display"
+
+  outsider-rtsp:
+    build: .
+    volumes:
+      - ./alerts:/app/alerts
+      - ./configs:/app/configs
+    command:
+      - "--source"
+      - "${RTSP_URL}"
+      - "--zones"
+      - "configs/zones.json"
+      - "--no-display"
+    profiles:
+      - rtsp
+
+  outsider-webcam:
+    build: .
+    devices:
+      - /dev/video0:/dev/video0
+    volumes:
+      - ./alerts:/app/alerts
+      - ./configs:/app/configs
+    command:
+      - "--source"
+      - "0"
+      - "--zones"
+      - "configs/zones.json"
+      - "--no-display"
+    profiles:
+      - webcam

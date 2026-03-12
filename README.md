@@ -33,6 +33,8 @@ outsider/
 ├── tests/
 │   └── test_zones.py        # Unit tests
 ├── outsider_colab.ipynb     # Google Colab notebook
+├── Dockerfile
+├── docker-compose.yml
 └── requirements.txt
 ```
 
@@ -49,6 +51,55 @@ python -m src.video_pipeline --source rtsp://ip:port/stream --zones configs/zone
 
 # Webcam
 python -m src.video_pipeline --source 0 --zones configs/zones.json
+```
+
+## Docker
+
+> Containers run in headless mode (`--no-display`). Alerts are saved to the `alerts/` directory via a mounted volume.
+
+### Local video file
+
+Place your video inside a `videos/` folder, then:
+
+```bash
+docker compose up --build
+```
+
+By default it runs `videos/video.mp4`. To use a different file:
+
+```bash
+docker compose run --rm outsider \
+  --source videos/other.mp4 \
+  --zones configs/zones.json \
+  --no-display
+```
+
+### RTSP stream
+
+```bash
+RTSP_URL=rtsp://ip:port/stream docker compose --profile rtsp up --build
+```
+
+### Webcam
+
+```bash
+docker compose --profile webcam up --build
+```
+
+> Requires `/dev/video0` to be available on the host.
+
+### Custom arguments
+
+Override any pipeline argument directly:
+
+```bash
+docker compose run --rm outsider \
+  --source videos/video.mp4 \
+  --zones configs/zones.json \
+  --model yolov8s.pt \
+  --confidence 0.6 \
+  --cooldown 10 \
+  --no-display
 ```
 
 ## Public datasets
